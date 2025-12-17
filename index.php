@@ -1,4 +1,7 @@
 <?php
+
+
+/*  */
 // $opts = [
 //   'http'=> [
 //     'method'=>"GET",
@@ -33,9 +36,12 @@
 
 // curl_exec($curl);
 
-require_once'./vendor/autoload.php';
+require_once './vendor/autoload.php'; 
 
+$client = new GuzzleHttp\Client();
+$res = $client->request('GET', 'https://api.le-systeme-solaire.net/rest/bodies/terre', [
+ 'headers' => [
+     "Authorization" =>  "Bearer 00826525-ada6-4264-befe-79acc3d8693d",
+ ]]);
+ echo $res->getBody();
 
-
-
-?>
